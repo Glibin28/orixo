@@ -1386,15 +1386,10 @@ form.addEventListener("submit", async (e) => {
 
   const formData = new FormData(form);
 
-  const data = Object.fromEntries(formData.entries());
-
   try {
     const res = await fetch("/contact", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
+      body: formData
     });
 
     const result = await res.json();

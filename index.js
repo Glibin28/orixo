@@ -65,10 +65,10 @@ app.post("/contact", upload.single("image"), async (req, res) => {
       attachments,
     });
 
-    res.send("Project submitted successfully");
+    res.json({ success: true, message: "Project submitted successfully" });
   } catch (err) {
     console.error(err);
-    res.status(500).send("Failed to send email");
+    res.status(500).json({ success: false, message: "Failed to send email" });
   }
 });
 
